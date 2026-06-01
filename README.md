@@ -107,6 +107,41 @@ The bot validates parameters locally before dispatching them to the Binance API:
 
 ---
 
+## Output Example
+
+After execution, the CLI prints:
+
+- Order status
+- Order ID
+- Executed quantity
+- Average price (if available)
+- Full Binance API response
+
+Example:
+
+- **ORDER PLACED SUCCESSFULLY**
+- **Order ID**: 123456
+- **Status**: FILLED
+- **Executed Qty**: 0.001
+- **Avg Price**: 95000
+
+---
+
+## Architecture Overview
+
+This project follows a layered design:
+
+- **CLI Layer** → handles user input
+- **Service Layer** → order logic
+- **API Layer** → Binance communication
+- **Utility Layer** → validation + logging
+
+This ensures:
+
+- Reusability
+- Maintainability
+- Separation of concerns
+
 ## Error Handling & Logging
 
 - All network requests, server responses, client validations, and exceptions are logged with timestamps and logging levels to the local `bot.log` file.
