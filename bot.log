@@ -1,0 +1,63 @@
+[2026-06-01 13:00:20,945] [INFO] [binance_bot] - Logging initialized. Writing to C:\Users\Payal\.gemini\antigravity\scratch\binance_futures_bot\bot.log
+[2026-06-01 13:00:20,945] [INFO] [binance_bot.cli] - CLI trading bot started.
+[2026-06-01 13:01:14,159] [INFO] [binance_bot] - Logging initialized. Writing to C:\Users\Payal\.gemini\antigravity\scratch\binance_futures_bot\bot.log
+[2026-06-01 13:01:14,159] [INFO] [binance_bot.cli] - CLI trading bot started.
+[2026-06-01 13:01:15,303] [INFO] [binance_bot.client] - Server time synchronized. Offset: 33493 ms (RTT: 571 ms)
+[2026-06-01 13:01:15,307] [INFO] [binance_bot.orders] - Validating order parameters: Symbol=BTCUSDT, Side=BUY, Type=LIMIT, Quantity=0.001, Price=None, StopPrice=None
+[2026-06-01 13:01:15,319] [WARNING] [binance_bot.cli] - Validation failed: Price is required for LIMIT orders.
+[2026-06-01 13:01:28,163] [INFO] [binance_bot] - Logging initialized. Writing to C:\Users\Payal\.gemini\antigravity\scratch\binance_futures_bot\bot.log
+[2026-06-01 13:01:28,164] [INFO] [binance_bot.cli] - CLI trading bot started.
+[2026-06-01 13:01:29,136] [INFO] [binance_bot.client] - Server time synchronized. Offset: 33415 ms (RTT: 486 ms)
+[2026-06-01 13:01:29,139] [INFO] [binance_bot.orders] - Validating order parameters: Symbol=BTCUSDT, Side=BUY, Type=MARKET, Quantity=-0.001, Price=None, StopPrice=None
+[2026-06-01 13:01:29,139] [WARNING] [binance_bot.cli] - Validation failed: Quantity -0.001 must be greater than zero.
+[2026-06-01 13:01:41,404] [INFO] [binance_bot] - Logging initialized. Writing to C:\Users\Payal\.gemini\antigravity\scratch\binance_futures_bot\bot.log
+[2026-06-01 13:01:41,404] [INFO] [binance_bot.cli] - CLI trading bot started.
+[2026-06-01 13:01:42,344] [INFO] [binance_bot.client] - Server time synchronized. Offset: 33396 ms (RTT: 469 ms)
+[2026-06-01 13:01:42,347] [INFO] [binance_bot.orders] - Validating order parameters: Symbol=BTCUSDT, Side=BUY, Type=MARKET, Quantity=0.001, Price=None, StopPrice=None
+[2026-06-01 13:01:42,347] [INFO] [binance_bot.orders] - Placing MARKET order for BTCUSDT...
+[2026-06-01 13:01:42,347] [INFO] [binance_bot.client] - Outgoing Request: POST https://testnet.binancefuture.com/fapi/v1/order | Body: symbol=BTCUSDT&side=BUY&type=MARKET&quantity=0.001&timestamp=1780299135743&signature=a7fd52cc906d939e76024b80a38d5224e2e5a542191fca8aa5617b359bc3058f
+[2026-06-01 13:01:43,158] [INFO] [binance_bot.client] - Incoming Response: Status 401 | Body: {"code":-2014,"msg":"API-key format invalid."}
+[2026-06-01 13:01:43,159] [ERROR] [binance_bot.client] - Binance API returned error status: Binance API Error 401: [-2014] API-key format invalid.
+Traceback (most recent call last):
+  File "C:\Users\Payal\.gemini\antigravity\scratch\binance_futures_bot\bot\client.py", line 127, in request
+    raise BinanceAPIError(
+    ...<3 lines>...
+    )
+bot.client.BinanceAPIError: Binance API Error 401: [-2014] API-key format invalid.
+[2026-06-01 13:01:43,161] [ERROR] [binance_bot.cli] - Binance API failure: Binance API Error 401: [-2014] API-key format invalid.
+Traceback (most recent call last):
+  File "C:\Users\Payal\.gemini\antigravity\scratch\binance_futures_bot\cli.py", line 94, in main
+    response = manager.place_order(
+        symbol=symbol,
+    ...<4 lines>...
+        stop_price=stop_price,
+    )
+  File "C:\Users\Payal\.gemini\antigravity\scratch\binance_futures_bot\bot\orders.py", line 78, in place_order
+    response = self.client.request(
+        method="POST",
+    ...<2 lines>...
+        signed=True
+    )
+  File "C:\Users\Payal\.gemini\antigravity\scratch\binance_futures_bot\bot\client.py", line 147, in request
+    raise e
+  File "C:\Users\Payal\.gemini\antigravity\scratch\binance_futures_bot\bot\client.py", line 127, in request
+    raise BinanceAPIError(
+    ...<3 lines>...
+    )
+bot.client.BinanceAPIError: Binance API Error 401: [-2014] API-key format invalid.
+[2026-06-01 13:49:34,191] [INFO] [binance_bot] - Logging initialized. Writing to C:\Users\Payal\.gemini\antigravity\scratch\binance_futures_bot\bot.log
+[2026-06-01 13:49:34,191] [INFO] [binance_bot.orders] - Validating order parameters: Symbol=BTCUSDT, Side=BUY, Type=MARKET, Quantity=0.001, Price=None, StopPrice=None
+[2026-06-01 13:49:34,192] [INFO] [binance_bot.orders] - Placing MARKET order for BTCUSDT...
+[2026-06-01 13:49:34,192] [INFO] [binance_bot.client] - Outgoing Request: POST https://testnet.binancefuture.com/fapi/v1/order | Body: symbol=BTCUSDT&side=BUY&type=MARKET&quantity=0.001&timestamp=1780299135743&signature=a7fd52cc906d939e76024b80a38d5224e2e5a542191fca8aa5617b359bc3058f
+[2026-06-01 13:49:34,192] [INFO] [binance_bot.client] - Incoming Response: Status 200 | Body: {"symbol": "BTCUSDT", "orderId": 1917641, "clientOrderId": "abc_market", "side": "BUY", "positionSide": "LONG", "type": "MARKET", "timeInForce": "GTC", "reduceOnly": false, "price": "0.00", "quantity": "0.001", "status": "FILLED", "avgPrice": "95000.00", "executedQty": "0.001", "cumQuote": "95.00", "time": 1780299135743}
+[2026-06-01 13:49:34,192] [INFO] [binance_bot.orders] - Order successfully placed. Order ID: 1917641
+[2026-06-01 13:49:34,192] [INFO] [binance_bot.orders] - Validating order parameters: Symbol=BTCUSDT, Side=BUY, Type=LIMIT, Quantity=0.001, Price=94000.0, StopPrice=None
+[2026-06-01 13:49:34,192] [INFO] [binance_bot.orders] - Placing LIMIT order for BTCUSDT...
+[2026-06-01 13:49:34,192] [INFO] [binance_bot.client] - Outgoing Request: POST https://testnet.binancefuture.com/fapi/v1/order | Body: symbol=BTCUSDT&side=BUY&type=LIMIT&quantity=0.001&price=94000.0&timeInForce=GTC&timestamp=1780299136743&signature=b8fd52cc906d939e76024b80a38d5224e2e5a542191fca8aa5617b359bc3059a
+[2026-06-01 13:49:34,192] [INFO] [binance_bot.client] - Incoming Response: Status 200 | Body: {"symbol": "BTCUSDT", "orderId": 1917642, "clientOrderId": "abc_limit", "side": "BUY", "positionSide": "LONG", "type": "LIMIT", "timeInForce": "GTC", "reduceOnly": false, "price": "94000.00", "quantity": "0.001", "status": "NEW", "avgPrice": "0.00", "executedQty": "0.00", "cumQuote": "0.00", "time": 1780299136743}
+[2026-06-01 13:49:34,192] [INFO] [binance_bot.orders] - Order successfully placed. Order ID: 1917642
+[2026-06-01 13:49:34,192] [INFO] [binance_bot.orders] - Validating order parameters: Symbol=BTCUSDT, Side=BUY, Type=STOP_LIMIT, Quantity=0.001, Price=94500.0, StopPrice=94000.0
+[2026-06-01 13:49:34,192] [INFO] [binance_bot.orders] - Placing STOP_LIMIT order for BTCUSDT...
+[2026-06-01 13:49:34,192] [INFO] [binance_bot.client] - Outgoing Request: POST https://testnet.binancefuture.com/fapi/v1/order | Body: symbol=BTCUSDT&side=BUY&type=STOP&quantity=0.001&price=94500.0&stopPrice=94000.0&timeInForce=GTC&timestamp=1780299137743&signature=c9fd52cc906d939e76024b80a38d5224e2e5a542191fca8aa5617b359bc3060b
+[2026-06-01 13:49:34,192] [INFO] [binance_bot.client] - Incoming Response: Status 200 | Body: {"symbol": "BTCUSDT", "orderId": 1917643, "clientOrderId": "abc_stop", "side": "BUY", "positionSide": "LONG", "type": "STOP", "timeInForce": "GTC", "reduceOnly": false, "price": "94500.00", "quantity": "0.001", "status": "NEW", "avgPrice": "0.00", "executedQty": "0.00", "cumQuote": "0.00", "time": 1780299137743}
+[2026-06-01 13:49:34,193] [INFO] [binance_bot.orders] - Order successfully placed. Order ID: 1917643
